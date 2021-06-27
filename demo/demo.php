@@ -2,11 +2,10 @@
 require_once "../Zeero/autoload.php";
 require_once "Request.php";
 
-use Zeero\Validator\Rule;
 use Zeero\Validator\Validator;
 
 
-
+// You can validate inline
 $rules = [
     'name' => 'min:5',
     'id' => 'required|pattern:digit|same:_id2'
@@ -26,16 +25,21 @@ $validator = new Validator($rules , $messages);
 
 $validator->make($data);
 
+// true if fails
 var_dump($validator->fail());
 
+// true if success
 var_dump($validator->success());
 
+// array of tests
 print_r($validator->tests());
 
+// array of messages
 print_r($validator->errors());
 
 
-// OR VIA A CLASS THAT EXTENDS FROM Validator\Form
+
+// or via child class of Zeero\Validator\Form
 
 $request = new Request;
 
