@@ -2,7 +2,7 @@
 
 use Zeero\Validator\Form;
 
-class Request extends Form
+final class Request extends Form
 {
     public function rules()
     {
